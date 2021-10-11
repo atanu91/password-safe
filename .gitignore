@@ -1,5 +1,6 @@
 # Configuration secrets
 /src/backend/database/mongodb/atlas/dbConfig.yml
+/src/backend/secretsConfig.yml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
