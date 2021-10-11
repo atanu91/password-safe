@@ -1,0 +1,8 @@
+Connection Description : "Database Configuration - MongoDb Atlas"
+Connection :
+ header : "<header_info>" # Typical header info. Example : mongodb+srv://
+ user_name : "<user_name>" # Username which has relevant permission to a database
+ user_passwrd : "<user_pass>" # User password which has relevant permission to a database
+ cluster : "<cluster_info>" # The cluster where your database resides. Example : @cluster0.ccukv.mongodb.net
+ default_db : "" # We do not need to provide any detail below, however we can have any existing database in that cluster
+ trailer : "<trailer_info>" # Typical trailer info. Example : ?retryWrites=true&w=majority
