@@ -1,4 +1,4 @@
-import pymongo
+# import pymongo
 import yaml
 
 # extract configuration secrets from configuration file
@@ -17,12 +17,12 @@ db_trailer = db_config_object['Connection']['trailer']
 db_connection_string = db_header + db_user_name + ":" + db_user_pass + db_cluster + "/" + db_default_db + db_trailer
 
 # connect to MongoDb Atlas
-db_connect_client = pymongo.MongoClient(db_connection_string)
+# db_connect_client = pymongo.MongoClient(db_connection_string)
 # get db object
 # use db = client.list_database_names() to extract the list of databases
-db = db_connect_client.sample_analytics
+# db = db_connect_client.sample_analytics
 
 # get collection object
-collection = db.customers
+# collection = db.customers
 
-print(collection.find_one())
+# print(collection.find_one())

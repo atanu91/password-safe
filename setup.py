@@ -1,4 +1,4 @@
-import src.backend.setup_secrets as setup_secrets
+import src.backend.setupSecrets as setupSecrets
 
-setup_secrets.generate_encryption_secret()
+setupSecrets.generate_encryption_secret()
 
