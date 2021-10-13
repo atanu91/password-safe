@@ -1,4 +1,6 @@
-from flask import Flask, jsonify
+import json
+from flask import Flask, jsonify, request
+import src.backend.functions.passwordPolicy as passwordPolicy
 
 password_safe_api = Flask(__name__)
 
@@ -8,9 +10,10 @@ def say_hello():
     return jsonify("Hello World! This is the api landing page")
 
 
-@password_safe_api.route("/api/create")
+@password_safe_api.route("/api/create", methods=['POST'])
 def user_create():
-    return jsonify("Hello World! This is the api landing page")
+    input_user_data = dict(json.loads(request.data))
+    return jsonify({"response": passwordPolicy.validate_policy(input_user_data['password'])})
 
 
 @password_safe_api.route("/api/update")
@@ -24,7 +27,7 @@ def user_delete():
 
 
 @password_safe_api.route("/api/{user_hash}/reset")
-def user_delete():
+def user_reset():
     return jsonify("Hello World! This is the api landing page")
 
 
