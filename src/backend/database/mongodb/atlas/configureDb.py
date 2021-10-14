@@ -20,3 +20,18 @@ db_trailer = db_config_object['Connection']['trailer']
 
 # prepare db connection string
 db_connection_string = db_header + db_user_name + ":" + db_user_pass + db_cluster + "/" + db_default_db + db_trailer
+
+db_api_db_list = db_config_object['Database Group']['database']
+# print(db_api_db_list)
+for db_api_db_detail in db_api_db_list:
+    db_api_db_name = db_api_db_detail['name']
+    if db_api_db_name == "sample_db":
+        password_safe_db = db_api_db_name
+        db_collections = db_api_db_detail['collections']
+        for db_collection_detail in db_collections:
+            if db_collection_detail['type'] == "credentials":
+                db_api_collection_cred = db_collection_detail['collection']
+
+
+# print(password_safe_db)
+# print(db_api_collection_cred)

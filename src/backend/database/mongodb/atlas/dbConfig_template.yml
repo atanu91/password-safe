@@ -6,3 +6,9 @@ Connection :
  cluster : "<cluster_info>" # The cluster where your database resides. Example : @cluster0.ccukv.mongodb.net
  default_db : "" # We do not need to provide any detail below, however we can have any existing database in that cluster
  trailer : "<trailer_info>" # Typical trailer info. Example : ?retryWrites=true&w=majority
+Database Group :
+ database :
+  -name : "<database_name>" # database name
+   collections :
+   - type : "<database_type>" # data class. We can group according to function
+     collection : "<table_name>" # collection name. In sql terms, we can term it as a table

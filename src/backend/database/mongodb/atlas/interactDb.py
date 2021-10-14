@@ -18,9 +18,9 @@ class InteractUser:
     def __init__(self, collection):
         self.collection = collection
 
-    def get_data(self, user_name):
+    def get_data(self, query):
         """performs data extraction"""
-        user_details = self.collection.find_one({"user_name": user_name})
+        user_details = self.collection.find_one(query)
         return user_details
 
     def insert_data(self, query):
