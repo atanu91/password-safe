@@ -13,24 +13,25 @@ def say_hello():
 @password_safe_api.route("/api/create", methods=['POST'])
 def user_create():
     input_user_data = dict(json.loads(request.data))
-    # input_user_name = input_user_data['user_name']
-    # input_user_password = input_user_data['password']
-    validate_user_registration(input_user_data['user_name'], input_user_data['password'])
+    registration_user_name = input_user_data['user_name']
+    registration_user_password = input_user_data['password']
+    # validate username and password against defined policies
+    validate_user_registration(registration_user_name, registration_user_password)
 
 
 @password_safe_api.route("/api/update")
 def user_update():
-    return jsonify("Hello World! This is the api landing page")
+    return jsonify("Hello World! This is the api user update page")
 
 
-@password_safe_api.route("/api/{user_hash}/delete")
+@password_safe_api.route("/api/delete")
 def user_delete():
-    return jsonify("Hello World! This is the api landing page")
+    return jsonify("Hello World! This is the api user delete page")
 
 
-@password_safe_api.route("/api/{user_hash}/reset")
+@password_safe_api.route("/api/reset")
 def user_reset():
-    return jsonify("Hello World! This is the api landing page")
+    return jsonify("Hello World! This is the api user reset page")
 
 
 if __name__ == "__main__":
