@@ -1,12 +1,19 @@
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
 from Crypto import Random
+from Crypto.Hash import SHA3_512
 import binascii
-# from src.backend.configureSecrets import secret_key
+from src.backend.configureSecrets import secret_key
 # import base64
 
 # AES supports multiple key sizes: 16 (AES128), 24 (AES192), or 32 (AES256).
 key_bytes = 32
+
+
+def hash_pass(password):
+    hashed_object = SHA3_512.new()
+    hashed_object.update(password.encode("utf8"))
+    return hashed_object.hexdigest()
 
 
 # Takes as input a 32-byte key and an arbitrary-length plaintext and returns a
@@ -56,4 +63,8 @@ def decrypt(key, init_vec, cipher_text):
 # print(base64.b64decode(url_safe_iv))
 # print(ciphertext)
 # print(base64.b64encode(ciphertext).decode("utf8"))
+# print(decrypt(secret_key, iv, ciphertext).decode("utf8"))
+
+# print(hash_pass("hello"))
+# (iv, ciphertext) = encrypt(secret_key, hash_pass("hello"))
 # print(decrypt(secret_key, iv, ciphertext).decode("utf8"))

@@ -1,6 +1,7 @@
 import json
 from flask import Flask, jsonify, request
 from src.backend.functions.validateRegistration import validate_user_registration
+from src.backend.functions.passwordCryptography import hash_pass
 
 password_safe_api = Flask(__name__)
 
@@ -17,6 +18,7 @@ def user_create():
     registration_user_password = input_user_data['password']
     # validate username and password against defined policies
     validate_user_registration(registration_user_name, registration_user_password)
+    hash_pass(registration_user_password)
 
 
 @password_safe_api.route("/api/update")
