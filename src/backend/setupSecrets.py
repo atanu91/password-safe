@@ -14,7 +14,7 @@ def generate_encryption_secret():
 
     c = string.ascii_letters + string.digits + string.punctuation
     # generate secret global encryption key
-    secret_key = ''.join(secrets.choice(c) for i in range(67))
+    secret_key = ''.join(secrets.choice(c) for i in range(32))
 
     secrets_config_object_write['Configuration']['encryption']['global'] = str(secret_key)
 
